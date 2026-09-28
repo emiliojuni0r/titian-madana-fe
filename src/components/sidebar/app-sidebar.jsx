@@ -33,6 +33,7 @@ import { NavMain } from "./nav-main"
 // import { NavProjects } from "./nav-projects"
 // import { NavSecondary } from "./nav-secondary"
 import { NavUser } from "./nav-user"
+import { NavLink } from "react-router"
 
 const data = {
     user: {
@@ -72,10 +73,19 @@ export function AppSidebar({ ...props }) {
                 <SidebarGroup className={'gap-y-2'}>
                     {/* Dashboard */}
                     <SidebarMenu>
-                        <SidebarMenuItem className={'border-l-4 rounded-l-md'}>
-                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                        <SidebarMenuItem className={``}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
                                 <LayoutDashboard />
-                                {/* <project.icon /> */}
                                 <span>Dashboard</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
@@ -84,7 +94,7 @@ export function AppSidebar({ ...props }) {
                     {/* Tender */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                            <SidebarMenuButton render={<a href={'/'} />}>
                                 <List />
                                 {/* <project.icon /> */}
                                 <span>Tender</span>
@@ -95,7 +105,7 @@ export function AppSidebar({ ...props }) {
                     {/* Arsip */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                            <SidebarMenuButton render={<a href={'/'} />}>
                                 <Archive />
                                 {/* <project.icon /> */}
                                 <span>Arsip</span>
@@ -106,7 +116,7 @@ export function AppSidebar({ ...props }) {
                     {/* Scraping */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                            <SidebarMenuButton render={<a href={''} />}>
                                 <Search />
                                 {/* <project.icon /> */}
                                 <span>Scraping</span>
@@ -118,7 +128,17 @@ export function AppSidebar({ ...props }) {
                     {/* Analitik */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/analitik"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
                                 <ChartSpline />
                                 {/* <project.icon /> */}
                                 <span>Analitik</span>
