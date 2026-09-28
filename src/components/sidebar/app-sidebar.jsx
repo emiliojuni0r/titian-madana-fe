@@ -1,0 +1,148 @@
+import * as React from "react"
+import {
+    Archive,
+    BookOpen,
+    Bot,
+    ChartSpline,
+    Command,
+    Frame,
+    LayoutDashboard,
+    LifeBuoy,
+    List,
+    Map,
+    PieChart,
+    Search,
+    Send,
+    Settings2,
+    SquareTerminal,
+} from "lucide-react"
+
+
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarGroup,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+} from "@/components/ui/sidebar"
+import { NavMain } from "./nav-main"
+// import { NavProjects } from "./nav-projects"
+// import { NavSecondary } from "./nav-secondary"
+import { NavUser } from "./nav-user"
+
+const data = {
+    user: {
+        name: "shadcn",
+        email: "m@example.com",
+        avatar: "/avatars/shadcn.jpg",
+    },
+
+}
+
+export function AppSidebar({ ...props }) {
+    return (
+        <Sidebar
+            className="h-full!"
+            {...props}
+        >
+            <SidebarHeader>
+                <SidebarMenu>
+                    <SidebarMenuItem>
+                        <SidebarMenuButton size="xl" asChild>
+                            <a href="#">
+                                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                                    <Command className="size-4" />
+                                </div>
+                                <div className="grid flex-1 text-left text-sm leading-tight">
+                                    <span className="truncate font-medium">Acme Inc</span>
+                                    <span className="truncate text-xs">Enterprise</span>
+                                </div>
+                            </a>
+                        </SidebarMenuButton>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarHeader>
+            <SidebarContent>
+                {/* <NavMain items={data.navMain} /> */}
+                {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
+                <SidebarGroup className={'gap-y-2'}>
+                    {/* Dashboard */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={'border-l-4 rounded-l-md'}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <LayoutDashboard />
+                                {/* <project.icon /> */}
+                                <span>Dashboard</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+                    {/* Tender */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <List />
+                                {/* <project.icon /> */}
+                                <span>Tender</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+                    {/* Arsip */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <Archive />
+                                {/* <project.icon /> */}
+                                <span>Arsip</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+                    {/* Scraping */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <Search />
+                                {/* <project.icon /> */}
+                                <span>Scraping</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+
+                    {/* Analitik */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <ChartSpline />
+                                {/* <project.icon /> */}
+                                <span>Analitik</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+                    {/* Arsip */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton render={<a href={'/dashboard'} />}>
+                                <LayoutDashboard />
+                                {/* <project.icon /> */}
+                                <span>menu6</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+
+                </SidebarGroup>
+            </SidebarContent>
+            <SidebarFooter>
+                <NavUser user={data.user} />
+            </SidebarFooter>
+        </Sidebar>
+    )
+}
