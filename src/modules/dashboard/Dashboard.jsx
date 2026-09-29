@@ -1,7 +1,7 @@
 import { AppSidebar } from "@/components/sidebar/app-sidebar"
 import { SiteHeader } from "@/components/sidebar/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
-import { CalendarDays, ClipboardCheck, ClipboardList, TriangleAlert } from "lucide-react"
+import { CalendarDays, ClipboardCheck, ClipboardList, HandCoins, TriangleAlert } from "lucide-react"
 
 
 export const iframeHeight = "800px"
@@ -55,6 +55,17 @@ export default function Page() {
                             <div className="flex flex-row justify-between items-center">
                                 <p>Segera Berakhir</p>
                                 <TriangleAlert />
+                            </div>
+                            <div className="my-auto">
+                                <span className="font-semibold text-3xl">1</span>
+                            </div>
+                        </div>
+                        
+                        {/* total nilai */}
+                        <div className="rounded-sm bg-gray-100 h-[130px] flex flex-col px-3 py-4">
+                            <div className="flex flex-row justify-between items-center">
+                                <p>Total Nilai</p>
+                                <HandCoins />
                             </div>
                             <div className="my-auto">
                                 <span className="font-semibold text-3xl">1</span>
