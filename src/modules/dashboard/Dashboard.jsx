@@ -195,7 +195,7 @@ export default function Page() {
                             {/* list yang perlu diperhatikan */}
                             <div className="flex flex-col gap-y-1.5 mt-2 relative">
                                 {/* this is vertical line */}
-                                <div className="h-[90%] top-[2%] my-auto w-0.5 bg-gray-400 inset text-transparent absolute left-[0.75%] z-0">.</div>
+                                <div className="h-[90%] top-[2%] my-auto w-0.5 bg-gray-300 inset text-transparent absolute left-[5px] z-0">.</div>
 
                                 {/* activity timeline points */}
                                 <div className="flex flex-row gap-x-3 items-center z-20">
@@ -211,7 +211,7 @@ export default function Page() {
                                 </div>
                                 
                                 <div className="flex flex-row gap-x-3 items-center">
-                                    <div className="text-transparent rounded-full w-3 h-3 bg-gray-400 ">
+                                    <div className="text-transparent rounded-full w-3 h-3 bg-gray-300 ">
                                         .
                                     </div>
                                     <div className="gap-y-0">
@@ -223,7 +223,7 @@ export default function Page() {
                                 </div>
                                 
                                 <div className="flex flex-row gap-x-3 items-center">
-                                    <div className="text-transparent rounded-full w-3 h-3 bg-gray-400 ">
+                                    <div className="text-transparent rounded-full w-3 h-3 bg-gray-300 ">
                                         .
                                     </div>
                                     <div className="gap-y-0">
