@@ -54,13 +54,13 @@ export function AppSidebar({ ...props }) {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="xl" asChild>
-                            <a href="#">
+                            <a href="#" className="flex flex-row gap-x-2">
                                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                                     <Command className="size-4" />
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-medium">Acme Inc</span>
-                                    <span className="truncate text-xs">Enterprise</span>
+                                    <span className="truncate font-medium">Title</span>
+                                    <span className="truncate text-xs">subtitle</span>
                                 </div>
                             </a>
                         </SidebarMenuButton>
