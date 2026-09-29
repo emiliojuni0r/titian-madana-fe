@@ -1,5 +1,5 @@
+import { Fragment } from "react"
 import { SidebarIcon } from "lucide-react"
-
 
 import {
     Breadcrumb,
@@ -14,7 +14,7 @@ import { Separator } from "@/components/ui/separator"
 import { useSidebar } from "@/components/ui/sidebar"
 import { SearchForm } from "./search-form"
 
-export function SiteHeader() {
+export function SiteHeader({ breadcrumbs = [] }) {
     const { toggleSidebar } = useSidebar()
 
     return (
@@ -28,18 +28,37 @@ export function SiteHeader() {
                 >
                     <SidebarIcon />
                 </Button>
+
                 <Separator orientation="vertical" className="mr-2 h-4" />
-                <Breadcrumb className="hidden sm:block">
-                    <BreadcrumbList>
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href="#">Build Your Application</BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                            <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                </Breadcrumb>
+
+                {breadcrumbs.length > 0 && (
+                    <Breadcrumb className="hidden sm:block">
+                        <BreadcrumbList>
+                            {breadcrumbs.map((item, index) => {
+                                const isLast = index === breadcrumbs.length - 1
+
+                                return (
+                                    <Fragment key={index}>
+                                        <BreadcrumbItem>
+                                            {isLast || !item.href ? (
+                                                <BreadcrumbPage>
+                                                    {item.label}
+                                                </BreadcrumbPage>
+                                            ) : (
+                                                <BreadcrumbLink href={item.href}>
+                                                    {item.label}
+                                                </BreadcrumbLink>
+                                            )}
+                                        </BreadcrumbItem>
+
+                                        {!isLast && <BreadcrumbSeparator />}
+                                    </Fragment>
+                                )
+                            })}
+                        </BreadcrumbList>
+                    </Breadcrumb>
+                )}
+
                 <SearchForm className="w-full sm:ml-auto sm:w-auto" />
             </div>
         </header>

@@ -15,7 +15,7 @@ export default function Page() {
                 <div className="flex flex-1">
                     <AppSidebar />
                     <SidebarInset>
-                        <SiteHeader />
+                        
                         <Outlet />
                     </SidebarInset>
                 </div>
