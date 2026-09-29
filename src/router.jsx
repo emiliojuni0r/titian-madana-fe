@@ -4,6 +4,7 @@ import Login from "./modules/login/Login";
 import Register from "./modules/register/Register";
 import Dashboard from "./modules/dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Analitik from "./modules/analitik/Analitik";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
           },
           {
             path: '/analitik',
-            element: <Dashboard />,
+            element: <Analitik />,
           },
         ],
       },
