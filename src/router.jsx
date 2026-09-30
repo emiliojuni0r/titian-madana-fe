@@ -5,6 +5,7 @@ import Register from "./modules/register/Register";
 import Dashboard from "./modules/dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Analitik from "./modules/analitik/Analitik";
+import Tender from "./modules/tender/Tender";
 
 export const router = createBrowserRouter([
   {
@@ -19,12 +20,15 @@ export const router = createBrowserRouter([
             element: <Dashboard />,
           },
           {
+            path: '/tender',
+            element: <Tender />,
+          },
+          {
             path: '/analitik',
             element: <Analitik />,
           },
         ],
       },
-      // Kamu bisa menambahkan halaman internal lainnya di sini
     ]
   },
   {
