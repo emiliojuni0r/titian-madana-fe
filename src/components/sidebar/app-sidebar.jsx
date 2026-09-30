@@ -47,7 +47,7 @@ const data = {
 export function AppSidebar({ ...props }) {
     return (
         <Sidebar
-            className="h-full!"
+            className="h-full! z-50"
             {...props}
         >
             <SidebarHeader>
@@ -94,7 +94,17 @@ export function AppSidebar({ ...props }) {
                     {/* Tender */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/'} />}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/tender"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
                                 <List />
                                 {/* <project.icon /> */}
                                 <span>Tender</span>
