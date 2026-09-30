@@ -14,8 +14,7 @@ export default function Page() {
             <SidebarProvider className="flex flex-col">
                 <div className="flex flex-1">
                     <AppSidebar />
-                    <SidebarInset>
-                        
+                    <SidebarInset className={'overflow-x-clip'}>
                         <Outlet />
                     </SidebarInset>
                 </div>
