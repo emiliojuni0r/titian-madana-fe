@@ -6,6 +6,7 @@ import Dashboard from "./modules/dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Analitik from "./modules/analitik/Analitik";
 import Tender from "./modules/tender/Tender";
+import Monitoring from "./modules/monitoring/Monitoring";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
           {
             path: '/analitik',
             element: <Analitik />,
+          },
+          {
+            path: '/monitoring',
+            element: <Monitoring />,
           },
         ],
       },
