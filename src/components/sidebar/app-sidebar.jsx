@@ -1,5 +1,6 @@
 import * as React from "react"
 import {
+    Activity,
     Archive,
     BookOpen,
     Bot,
@@ -119,6 +120,26 @@ export function AppSidebar({ ...props }) {
                                 <Archive />
                                 {/* <project.icon /> */}
                                 <span>Arsip</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+                    
+                    {/* Monitoring */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/monitoring"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
+                                <Activity />
+                                <span>Monitoring</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     </SidebarMenu>
