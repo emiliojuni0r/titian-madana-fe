@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Analitik from "./modules/analitik/Analitik";
 import Tender from "./modules/tender/Tender";
 import Monitoring from "./modules/monitoring/Monitoring";
+import Arsip from "./modules/arsip/Arsip";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
           {
             path: '/analitik',
             element: <Analitik />,
+          },
+          {
+            path: '/arsip',
+            element: <Arsip />,
           },
           {
             path: '/monitoring',
