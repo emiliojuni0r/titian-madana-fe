@@ -30,6 +30,7 @@ import {
 
 import { Download, Search } from "lucide-react";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
 
 export default function Tender() {
     const categories = [
@@ -143,6 +144,8 @@ export default function Tender() {
         },
     ]
 
+    const [isDetailOpened, setDetailIsOpened] = useState(false);
+
     return (
         <>
             <SiteHeader
@@ -155,11 +158,18 @@ export default function Tender() {
                 <div className="rounded-lg bg-stone-100 h-full px-3 py-4">
 
                     {/* title, search form, and export button */}
-                    <div className="flex justify-between">
-                        <h1 className="text-2xl font-bold">Daftar Tender</h1>
-                        <div className="flex gap-x-2">
+                    <div className="flex flex-col md:justify-between">
+                        <div className="flex flex-row justify-between">
+                            <h1 className="text-lg md:text-2xl font-bold">Daftar Tender</h1>
+                            {/* button for export CSV */}
+                            <Button variant="outline" size="icon" className={'w-fit md:hidden flex gap-x-2 px-2 py-1 text-xs md:text-sm ml-auto md:ml-0'}>
+                                <Download />
+                                Export CSV
+                            </Button>
+                        </div>
+                        <div className="flex flex-col-reverse md:flex-row gap-2 mt-2 md:mt-0">
                             {/* search form */}
-                            <Field>
+                            <Field className={'md:ml-auto md:w-1/4'}>
                                 <InputGroup>
                                     <InputGroupAddon align="inline-start">
                                         <Search />
@@ -168,8 +178,8 @@ export default function Tender() {
                                 </InputGroup>
                             </Field>
 
-                            {/* button for export CSV */}
-                            <Button variant="outline" size="icon" className={'w-fit flex gap-x-2 px-2 py-1'}>
+                            {/* button for export CSV (hidden in mobile)*/}
+                            <Button variant="outline" size="icon" className={'w-fit hidden md:flex gap-x-2 px-2 py-1 text-xs md:text-sm ml-auto md:ml-0'}>
                                 <Download />
                                 Export CSV
                             </Button>
@@ -177,9 +187,9 @@ export default function Tender() {
                     </div>
 
                     {/* start filter */}
-                    <div className="flex gap-x-4 items-center px-4 py-3 rounded-lg bg-white mt-4">
+                    <div className="flex flex-col md:flex-row gap-x-4 md:items-center px-2 py-1.5 md:px-4 md:py-3 rounded-lg bg-white mt-2 md:mt-4">
                         <span>Filter :</span>
-                        <div className="flex flex-row gap-x-4 w-[30%]">
+                        <div className="flex flex-col md:flex-row gap-x-4 gap-y-1 md:w-[30%]">
                             <Field>
                                 <NativeSelect>
                                     <NativeSelectOption value="">Kategori</NativeSelectOption>
@@ -267,8 +277,8 @@ export default function Tender() {
                     </div>
                     {/* end of table */}
 
-                    <div className="px-4 py-3 flex justify-between bg-white rounded-b-lg text-sm">
-                        <span>Halaman 1 dari 2 - total 12</span>
+                    <div className="px-4 py-3 flex flex-col md:flex-row justify-center gap-y-1 md:justify-between bg-white rounded-b-lg text-sm">
+                        <span className="mx-auto md:mx-0">Halaman 1 dari 2 - total 12</span>
 
                         <Pagination>
                             <PaginationContent>
@@ -295,7 +305,7 @@ export default function Tender() {
                             </PaginationContent>
                         </Pagination>
 
-                        <Field orientation="horizontal" className="w-fit">
+                        <Field orientation="horizontal" className="w-fit mx-auto md:mx-0">
                             <FieldLabel htmlFor="select-rows-per-page">Rows per page</FieldLabel>
                             <Select defaultValue="10">
                                 <SelectTrigger className="w-20" id="select-rows-per-page">
