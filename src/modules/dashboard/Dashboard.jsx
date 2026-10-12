@@ -20,63 +20,63 @@ export default function Page() {
 
             <div className="px-3 py-2.5 min-h-screen">
                 <div className="rounded-lg bg-[#fafafa] h-full px-2 py-3">
-                    <h1 className="text-2xl font-bold">Selamat Datang Kembali, nama_user</h1>
-                    <div className="flex flex-row gap-x-2 items-center">
+                    <h1 className="text-xl md:text-2xl font-bold">Selamat Datang Kembali, nama_user</h1>
+                    <div className="flex flex-row gap-x-1 md:gap-x-2 items-center">
                         <CalendarDays className="scale-75" />
-                        <span className="text-sm font-semibold">Selasa, 29 September 2026</span>
+                        <span className="text-xs md:text-sm font-semibold">Selasa, 29 September 2026</span>
                     </div>
                     {/* start of 4 grid */}
-                    <div className="grid grid-cols-4 mt-6 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-4 mt-4 md:mt-6 gap-5">
                         {/* total tender */}
-                        <div className="rounded-sm bg-gray-100 h-[130px] flex flex-col px-3 py-4">
+                        <div className="rounded-sm bg-gray-100 h-[100px] md:h-[130px] flex flex-col px-3 py-4">
                             <div className="flex flex-row justify-between items-center">
                                 <p>Total Tender</p>
                                 <ClipboardList />
                             </div>
                             <div className="my-auto">
-                                <span className="font-semibold text-3xl">12</span>
+                                <span className="font-semibold text-2xl md:text-3xl">12</span>
                             </div>
                         </div>
 
                         {/* tender aktif */}
-                        <div className="rounded-sm bg-gray-100 h-[130px] flex flex-col px-3 py-4">
+                        <div className="rounded-sm bg-gray-100 h-[100px] md:h-[130px] flex flex-col px-3 py-4">
                             <div className="flex flex-row justify-between items-center">
                                 <p>Tender Aktif</p>
                                 <ClipboardCheck />
                             </div>
                             <div className="my-auto">
-                                <span className="font-semibold text-3xl">6</span>
+                                <span className="font-semibold text-2xl md:text-3xl">6</span>
                             </div>
                         </div>
 
                         {/* Segera Berakhir */}
-                        <div className="rounded-sm bg-gray-100 h-[130px] flex flex-col px-3 py-4">
+                        <div className="rounded-sm bg-gray-100 h-[100px] md:h-[130px] flex flex-col px-3 py-4">
                             <div className="flex flex-row justify-between items-center">
                                 <p>Segera Berakhir</p>
                                 <TriangleAlert />
                             </div>
                             <div className="my-auto">
-                                <span className="font-semibold text-3xl">1</span>
+                                <span className="font-semibold text-2xl md:text-3xl">1</span>
                             </div>
                         </div>
 
                         {/* total nilai */}
-                        <div className="rounded-sm bg-gray-100 h-[130px] flex flex-col px-3 py-4">
+                        <div className="rounded-sm bg-gray-100 h-[100px] md:h-[130px] flex flex-col px-3 py-4">
                             <div className="flex flex-row justify-between items-center">
                                 <p>Total Nilai</p>
                                 <HandCoins />
                             </div>
                             <div className="my-auto">
-                                <span className="font-semibold text-3xl">{formatRupiah(10000000)}</span>
+                                <span className="font-semibold text-2xl md:text-3xl">{formatRupiah(10000000)}</span>
                             </div>
                         </div>
                     </div>
                     {/* end of 4 grid */}
 
 
-                    <div className="grid grid-cols-[2fr_1fr] gap-5 mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-5 mt-6">
                         {/* start of nilai kontrak per kategori */}
-                        <div className="bg-gray-100 rounded-sm h-[350px] px-3 py-4">
+                        <div className="bg-gray-100 rounded-sm h-[300px] md:h-[350px] px-3 py-4 overflow-y-auto">
                             <h1 className="text-md font-semibold">Nilai Kontrak per Kategori</h1>
                             <h3 className="text-xs">Distribusi anggaran pengadaan</h3>
 
@@ -117,13 +117,13 @@ export default function Page() {
                             </div>
                         </div>
                         {/* end of nilai kontrak per kategori */}
-                        <div className="flex flex-col bg-gray-100 rounded-sm h-[350px] px-3 py-4">
+                        <div className="flex flex-col bg-gray-100 rounded-sm h-[300px] md:h-[350px] px-3 py-4">
                             <div className="flex gap-x-2 items-center">
                                 <OctagonAlert />
                                 <span className="font-semibold">Perlu Perhatian</span>
                             </div>
                             {/* list yang perlu diperhatikan */}
-                            <div className="flex flex-col gap-y-1.5 mt-2">
+                            <div className="flex flex-col gap-y-1.5 mt-2 overscroll-y-auto">
                                 <div className="rounded-md border hover:bg-gray-200 px-2.5 py-2 text-sm">
                                     <p className="font-semibold">Layanan abcdefghj</p>
                                     <span className="text-gray-600">Berakhir: 01 Agustus 2026</span>
@@ -140,7 +140,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-[3fr_1fr] gap-5 mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-5 mt-6">
                         {/* start of Tender terabru */}
                         <div className="bg-gray-100 rounded-sm h-[350px] px-3 py-4">
                             <h1 className="text-md font-semibold">Tender Terbaru</h1>
@@ -148,12 +148,12 @@ export default function Page() {
                             {/*  */}
                             <div className="flex flex-col mt-4">
                                 {/* example */}
-                                <div className="flex flex-row border-t py-2 px-1 hover:bg-gray-200">
-                                    <div className="flex flex-col w-[60%]">
+                                <div className="flex flex-col md:flex-row border-t py-2 px-1 hover:bg-gray-200">
+                                    <div className="flex flex-col w-full md:w-[60%]">
                                         <span className="text-md">Pembangunan Sistem Irigasi Teknis</span>
                                         <span className="font-light text-sm text-gray-700">PT Hutama Karya Infrastruktur</span>
                                     </div>
-                                    <div className="w-[40%] flex flex-row justify-between items-center">
+                                    <div className="w-full md:w-[40%] flex flex-row justify-between items-center">
                                         {/* status */}
                                         <div className="border-2 border-green-300 bg-green-100 px-2 py-1 rounded-md">
                                             <p className="text-xs text-green-700">Aktif</p>
@@ -164,12 +164,12 @@ export default function Page() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-row border-t py-2 px-1 hover:bg-gray-200">
-                                    <div className="flex flex-col w-[60%]">
+                                <div className="flex flex-col md:flex-row border-t py-2 px-1 hover:bg-gray-200">
+                                    <div className="flex flex-col w-full md:w-[60%]">
                                         <span className="text-md">Pembangunan Sistem Irigasi Teknis</span>
                                         <span className="font-light text-sm text-gray-700">PT Hutama Karya Infrastruktur</span>
                                     </div>
-                                    <div className="w-[40%] flex flex-row justify-between items-center">
+                                    <div className="w-full md:w-[40%] flex flex-row justify-between items-center">
                                         {/* status */}
                                         <div className="border-2 border-yellow-300 bg-yellow-100 px-2 py-1 rounded-md">
                                             <p className="text-xs text-yellow-700">Segera Berakhir</p>
@@ -193,7 +193,7 @@ export default function Page() {
                                 <span className="font-semibold">Aktivitas Terkini</span>
                             </div>
                             {/* list yang perlu diperhatikan */}
-                            <div className="flex flex-col gap-y-1.5 mt-2 relative">
+                            <div className="flex flex-col gap-y-1.5 mt-2 relative overflow-y-auto">
                                 {/* this is vertical line */}
                                 <div className="h-[90%] top-[2%] my-auto w-0.5 bg-gray-300 inset text-transparent absolute left-[5px] z-0">.</div>
 
