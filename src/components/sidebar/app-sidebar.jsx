@@ -1,5 +1,6 @@
 import * as React from "react"
 import {
+    Activity,
     Archive,
     BookOpen,
     Bot,
@@ -47,7 +48,7 @@ const data = {
 export function AppSidebar({ ...props }) {
     return (
         <Sidebar
-            className="h-full!"
+            className="h-full! z-50"
             {...props}
         >
             <SidebarHeader>
@@ -94,7 +95,17 @@ export function AppSidebar({ ...props }) {
                     {/* Tender */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/'} />}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/tender"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
                                 <List />
                                 {/* <project.icon /> */}
                                 <span>Tender</span>
@@ -105,10 +116,40 @@ export function AppSidebar({ ...props }) {
                     {/* Arsip */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={'/'} />}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/arsip"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
                                 <Archive />
                                 {/* <project.icon /> */}
                                 <span>Arsip</span>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+
+                    {/* Monitoring */}
+                    <SidebarMenu>
+                        <SidebarMenuItem className={''}>
+                            <SidebarMenuButton
+                                render={({ className, ...props }) => (
+                                    <NavLink
+                                        {...props}
+                                        to="/monitoring"
+                                        className={({ isActive }) =>
+                                            `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                        }
+                                    />
+                                )}
+                            >
+                                <Activity />
+                                <span>Monitoring</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     </SidebarMenu>
