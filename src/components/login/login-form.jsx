@@ -41,6 +41,8 @@ export function LoginForm({
                 confirm_password: confirmPassword // Sesuai dengan spesifikasi API kamu
             });
 
+            console.log(response)
+
             // Simpan token dan data user ke Zustand (termasuk role)
             setAuth(response.data);
 
