@@ -2,8 +2,20 @@ import axios from 'axios'
 import { useAuthStore } from '../stores/auth' // sesuaikan path
 import { router } from '../router' // Import router milikmu
 
+const resolveApiBaseUrl = () => {
+    const raw = import.meta.env.VITE_API_URL;
+    if (!raw) return '/api';
+
+    // Trim trailing slashes
+    const trimmed = String(raw).replace(/\/+$/, '');
+
+    // Allow either base host (https://host) or already-suffixed /api (https://host/api)
+    if (trimmed.endsWith('/api')) return trimmed;
+    return `${trimmed}/api`;
+};
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL + "/api",
+    baseURL: resolveApiBaseUrl(),
     headers: {
         'Content-Type': 'application/json'
     }
