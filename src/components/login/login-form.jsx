@@ -12,8 +12,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { useNavigate } from "react-router"
 import { useState } from "react"
-import api from "@/utils/api"
 import { useAuthStore } from "@/stores/auth"
+import authService from "@/modules/login/authService"
 
 export function LoginForm({
     className,
@@ -35,16 +35,23 @@ export function LoginForm({
 
         try {
             // Hit API Login
-            const response = await api.post('/auth/login', {
+            // const response = await api.post('/auth/login', {
+            //     username: username,
+            //     password: password,
+            //     confirm_password: confirmPassword // Sesuai dengan spesifikasi API kamu
+            // });
+
+            const response = await authService.login({
                 username: username,
                 password: password,
-                confirm_password: confirmPassword // Sesuai dengan spesifikasi API kamu
-            });
+                confirm_password: confirmPassword
+            })
 
             console.log(response)
 
             // Simpan token dan data user ke Zustand (termasuk role)
             setAuth(response.data);
+            console.log()
 
             // Redirect ke halaman utama / dashboard
             navigate('/', { replace: true });
