@@ -16,6 +16,7 @@ import {
     Send,
     Settings2,
     SquareTerminal,
+    UserPlus,
 } from "lucide-react"
 
 
@@ -35,6 +36,7 @@ import { NavMain } from "./nav-main"
 // import { NavSecondary } from "./nav-secondary"
 import { NavUser } from "./nav-user"
 import { NavLink } from "react-router"
+import { useAuthStore } from "@/stores/auth"
 
 const data = {
     user: {
@@ -46,6 +48,11 @@ const data = {
 }
 
 export function AppSidebar({ ...props }) {
+    // Ambil data user dari store
+    const user = useAuthStore((state) => state.user);
+    
+    // Cek apakah user adalah superadmin
+    const isSuperAdmin = user?.role === "superadmin";
     return (
         <Sidebar
             className="h-full! z-50"
@@ -197,6 +204,51 @@ export function AppSidebar({ ...props }) {
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     </SidebarMenu>
+
+                    {/* --- PRIVATE MENUS KHUSUS SUPERADMIN --- */}
+                    {isSuperAdmin && (
+                        <>
+                            {/* Scraping */}
+                            <SidebarMenu>
+                                <SidebarMenuItem>
+                                    <SidebarMenuButton 
+                                        render={({ className, ...props }) => (
+                                            <NavLink
+                                                {...props}
+                                                to="/scraping" // Pastikan route ini ada di router.jsx kamu nanti
+                                                className={({ isActive }) =>
+                                                    `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                                }
+                                            />
+                                        )}
+                                    >
+                                        <Search />
+                                        <span>Scraping</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            </SidebarMenu>
+
+                            {/* Create Account */}
+                            <SidebarMenu>
+                                <SidebarMenuItem>
+                                    <SidebarMenuButton 
+                                        render={({ className, ...props }) => (
+                                            <NavLink
+                                                {...props}
+                                                to="/register" // Mengarah ke rute register yang sudah ada
+                                                className={({ isActive }) =>
+                                                    `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
+                                                }
+                                            />
+                                        )}
+                                    >
+                                        <UserPlus />
+                                        <span>Create Account</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            </SidebarMenu>
+                        </>
+                    )}
 
 
                 </SidebarGroup>
