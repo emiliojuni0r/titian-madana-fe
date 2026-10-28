@@ -11,7 +11,7 @@ import Arsip from "./modules/arsip/Arsip";
 
 export const router = createBrowserRouter([
   {
-    // element: <ProtectedRoute />, // ini route guard (redirect ke login jika blm auth)
+    element: <ProtectedRoute />, // ini route guard (redirect ke login jika blm auth)
     children: [
       {
         path: "/",
