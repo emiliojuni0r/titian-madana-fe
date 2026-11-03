@@ -9,6 +9,7 @@ import Monitoring from "./modules/monitoring/Monitoring";
 import Arsip from "./modules/arsip/Arsip";
 import AccountManagement from "./modules/register/AccountManagement";
 import RoleRoute from "./components/RoleRoute";
+import Scrape from "./modules/scrape/Scrape";
 
 export const router = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'scraping',
-                element: <Tender />
+                element: <Scrape />
               }
             ]
           }
