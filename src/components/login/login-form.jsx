@@ -15,6 +15,7 @@ import { useState } from "react"
 import { useAuthStore } from "@/stores/auth"
 import authService from "@/modules/login/authService"
 
+
 export function LoginForm({
     className,
     ...props
@@ -24,7 +25,7 @@ export function LoginForm({
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    // const [confirmPassword, setConfirmPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -44,17 +45,17 @@ export function LoginForm({
             const response = await authService.login({
                 username: username,
                 password: password,
-                confirm_password: confirmPassword
+                // confirm_password: confirmPassword
             })
 
             console.log(response)
 
-            // Simpan token dan data user ke Zustand (termasuk role)
-            setAuth(response.data);
-            console.log()
+            if (response.status === 200) {// Simpan token dan data user ke Zustand (termasuk role)
+                setAuth(response.data);
 
-            // Redirect ke halaman utama / dashboard
-            navigate('/', { replace: true });
+                // Redirect ke halaman utama / dashboard
+                navigate('/', { replace: true });
+            }
         } catch (err) {
             console.error(err);
             setError(err.response?.data?.message || "Login gagal. Periksa username dan password.");
@@ -72,7 +73,7 @@ export function LoginForm({
                             <div className="flex flex-col items-center gap-2 text-center">
                                 <h1 className="text-2xl font-bold">Login</h1>
                                 <p className="text-balance text-muted-foreground">
-                                    Login to youraccount
+                                    Login to your account
                                 </p>
                             </div>
 
@@ -84,11 +85,11 @@ export function LoginForm({
                             )}
 
                             <Field>
-                                <FieldLabel htmlFor="email">Email</FieldLabel>
+                                <FieldLabel htmlFor="email">Username</FieldLabel>
                                 <Input
                                     id="username"
                                     type="text"
-                                    placeholder="username"
+                                    // placeholder="username"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                     required
@@ -109,23 +110,6 @@ export function LoginForm({
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    required />
-                            </Field>
-                            <Field>
-                                <div className="flex items-center">
-                                    <FieldLabel htmlFor="password">Confirm Password</FieldLabel>
-                                    {/* <a
-                                        href="#"
-                                        className="ml-auto text-sm underline-offset-2 hover:underline"
-                                    >
-                                        Forgot your password?
-                                    </a> */}
-                                </div>
-                                <Input
-                                    id="confirmPassword"
-                                    type="password"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
                                     required />
                             </Field>
                             <Field>
