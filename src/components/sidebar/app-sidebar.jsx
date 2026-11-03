@@ -161,18 +161,6 @@ export function AppSidebar({ ...props }) {
                         </SidebarMenuItem>
                     </SidebarMenu>
 
-                    {/* Scraping */}
-                    <SidebarMenu>
-                        <SidebarMenuItem className={''}>
-                            <SidebarMenuButton render={<a href={''} />}>
-                                <Search />
-                                {/* <project.icon /> */}
-                                <span>Scraping</span>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    </SidebarMenu>
-
-
                     {/* Analitik */}
                     <SidebarMenu>
                         <SidebarMenuItem className={''}>
@@ -235,7 +223,7 @@ export function AppSidebar({ ...props }) {
                                         render={({ className, ...props }) => (
                                             <NavLink
                                                 {...props}
-                                                to="/register" // Mengarah ke rute register yang sudah ada
+                                                to="/manageAccount" // Mengarah ke rute register yang sudah ada
                                                 className={({ isActive }) =>
                                                     `${className} ${isActive ? "border-l-4 rounded-l-md bg-sidebar-accent text-sidebar-accent-foreground" : ""}`
                                                 }

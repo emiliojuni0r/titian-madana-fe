@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "./layout/MainLayout";
 import Login from "./modules/login/Login";
-import Register from "./modules/register/Register";
 import Dashboard from "./modules/dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Analitik from "./modules/analitik/Analitik";
 import Tender from "./modules/tender/Tender";
 import Monitoring from "./modules/monitoring/Monitoring";
 import Arsip from "./modules/arsip/Arsip";
+import AccountManagement from "./modules/register/AccountManagement";
+import RoleRoute from "./components/RoleRoute";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,19 @@ export const router = createBrowserRouter([
             path: '/monitoring',
             element: <Monitoring />,
           },
+          {
+            element: <RoleRoute allowedRoles={['superadmin']} />, // 2. Guard Role: Wajib Superadmin
+            children: [
+              {
+                path: 'manageAccount',
+                element: <AccountManagement />
+              },
+              {
+                path: 'scraping',
+                element: <Tender />
+              }
+            ]
+          }
         ],
       },
     ]
@@ -45,9 +59,5 @@ export const router = createBrowserRouter([
     path: 'login',
     element: <Login />,
   },
-  {
-    path: 'register',
-    element: <Register />
-  }
 
 ])
