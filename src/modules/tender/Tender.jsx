@@ -414,10 +414,10 @@ export default function Tender() {
                                         Ringkasan
                                     </Button>
                                     <Button variant="outline" size="icon" className={`w-fit flex gap-x-2 px-4 py-2 ${detailDeskripsi === 'pemenang' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setDetailDeskripsi("pemenang")}>
-                                        Pemenang {`(${selectedTender.pemenang.length})`}
+                                        Pemenang {`(${selectedTender?.pemenang?.length})`}
                                     </Button>
                                     <Button variant="outline" size="icon" className={`w-fit flex gap-x-2 px-4 py-2 ${detailDeskripsi === 'sppj' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setDetailDeskripsi("sppj")}>
-                                        SPPJ {`(${selectedTender.sppj.length})`}
+                                        SPPJ {`(${selectedTender.sppj?.length})`}
                                     </Button>
                                 </div>
 
