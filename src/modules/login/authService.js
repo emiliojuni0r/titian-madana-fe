@@ -26,8 +26,13 @@ export function useLogout() {
     return handleLogout;
 }
 
-export default {
-    async login({username, password, confirm_password}) {
-        return api.post('/auth/login', { username, password, confirm_password })
+const authService = {
+    async login({ username, password }) {
+        return api.post('/auth/login', { username, password })
+    },
+    async register(data){
+        return api.post('/auth/register', data)
     }
 }
+
+export default authService;
