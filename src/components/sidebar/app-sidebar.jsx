@@ -38,6 +38,7 @@ import { NavUser } from "./nav-user"
 import { NavLink } from "react-router"
 import { useAuthStore } from "@/stores/auth"
 
+
 const data = {
     user: {
         name: "shadcn",
@@ -45,8 +46,8 @@ const data = {
         avatar: "/avatars/shadcn.jpg",
     },
 
-}
 
+}
 export function AppSidebar({ ...props }) {
     // Ambil data user dari store
     const user = useAuthStore((state) => state.user);
@@ -242,7 +243,7 @@ export function AppSidebar({ ...props }) {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user} />
+                <NavUser user={user} />
             </SidebarFooter>
         </Sidebar>
     )
